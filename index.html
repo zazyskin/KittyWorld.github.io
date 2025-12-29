@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KittyWorld</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" href="styles.css">
 
-    <!-- Скрипт для реального счёта игроков онлайн -->
     <script src="https://cdn.jsdelivr.net/gh/leonardosnt/mc-player-counter/dist/mc-player-counter.min.js"></script>
 </head>
 <body>
@@ -26,36 +25,26 @@
             <img src="images/logo.png" alt="KittyWorld СЕЗОН 0">
         </div>
 
-        <!-- Текст под лого -->
         <div class="bottom-text">
             Схуяли ты еще не играешь?
         </div>
 
-        <!-- Кнопка "Присоединиться" -->
         <a href="https://t.me/KittyYauwWorld_chat" class="join-button" target="_blank">
             Присоединиться
         </a>
 
-        <!-- Реальное количество котиков онлайн -->
         <div class="online-players">
             <span class="players-count" data-playercounter-ip="0.0.0.0:25565">0</span>
             <span class="players-text"> котиков онлайн</span>
         </div>
 
-        <!-- Заголовок полезных ссылок -->
         <div class="useful-links-title">
             Полезное:
         </div>
 
-        <!-- Три кнопки горизонтально -->
         <div class="links-buttons">
+            <a href="https://t.me/KittyYauwWorld" class="link-btn" target="_blank">Новости</a>
 
-            <!-- Новости -->
-            <a href="https://t.me/KittyYauwWorld" class="link-btn" target="_blank">
-                Новости
-            </a>
-
-            <!-- IP сервера -->
             <div class="link-btn ip-btn">
                 <svg class="server-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 6h16v12H4V6zm16-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-8 12.5v-1h8v1h-8zm0-3v-1h8v1h-8zm0-3v-1h8v1h-8z" fill="currentColor"/>
@@ -63,12 +52,94 @@
                 0.0.0.0:25565
             </div>
 
-            <!-- Техподдержка -->
-            <a href="https://t.me/KittyYauwWorld" class="link-btn" target="_blank">
-                Техподдержка
-            </a>
-
+            <a href="https://t.me/KittyYauwWorld" class="link-btn" target="_blank">Техподдержка</a>
         </div>
+
+        <div style="height: 70px;"></div>
+
+        <!-- Блок "Как начать играть?" + Стена разработчиков -->
+        <div class="how-to-start-guide">
+            <h2 class="guide-title">Как начать играть?</h2>
+            <p class="guide-subtitle">Краткий гайд по установке всего необходимого</p>
+
+            <div class="guide-cards-row">
+                <!-- Левая карточка -->
+                <div class="guide-card-with-skin">
+                    <div class="guide-big-card">
+                        <div class="guide-steps">
+                            <div class="step">
+                                <h3>1. Электричество и интернет</h3>
+                                <p>Вам понадобится электричество и интернет, чтобы зайти на сервер. Если таких услуг нет — играйте в одиночном режиме :)</p>
+                            </div>
+                            <div class="step">
+                                <h3>2. Установить лаунчер и Minecraft 1.21.1</h3>
+                                <p>Рекомендую скачать <a href="https://prismlauncher.org/" class="guide-link">Prism Launcher</a>.<br>
+                                Установите версию 1.21.1 (Fabric или Forge — по желанию).<br>
+                                Дальше сами разберётесь, вы же 1337 ;)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="images/skin-left.png" alt="Левый игрок" class="bottom-overlay-skin left-bottom-overlay">
+                </div>
+
+                <!-- Правая карточка -->
+                <div class="guide-card-with-skin">
+                    <div class="guide-big-card">
+                        <div class="guide-steps">
+                            <div class="step">
+                                <h3>3. Авторизация (белый список)</h3>
+                                <p>У нас действует белый список.<br>
+                                Перейдите в <a href="https://t.me/KittyYauwWorld_chat" class="guide-link">Telegram-чат</a> или нажмите кнопку «Присоединиться».<br>
+                                Напишите свой ник — администратор добавит вас.</p>
+                            </div>
+                            <div class="step">
+                                <h3>4. Наслаждайся игрой!</h3>
+                                <p>Читы запрещены, донатов нет.<br>
+                                Если окажется, что ты читер — весь сервер будет тебя чмырить :3<br>
+                                Играй честно, котик!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="images/skin-right.png" alt="Правый игрок" class="bottom-overlay-skin right-bottom-overlay">
+                </div>
+            </div>
+
+            <p class="guide-footer" style="margin-top: 80px;">
+                Не разобрался? Более подробный гайд есть на нашей <a href="wiki.html" class="guide-link">Wiki</a>
+            </p>
+
+            <!-- Стена Разработчиков -->
+            <h2 class="dev-wall-title">Стена Разработчиков</h2>
+            <p class="dev-wall-subtitle">Вот эти Котики зовутся нашими игроками)</p>
+
+            <div class="dev-cards-row">
+                <!-- Карточка MrTosya69 -->
+                <div class="dev-card">
+                    <div class="dev-top-skins">
+                        <img src="images/dev1.png" alt="MrTosya69" class="dev-small-skin">
+                    </div>
+                    <div class="dev-divider"></div>
+                    <p class="dev-main-text">MrTosya69</p>
+                    <p class="dev-sub-text">Главный Разраб</p>
+                </div>
+
+                <!-- Карточка Ilka09 -->
+                <div class="dev-card">
+                    <div class="dev-top-skins">
+                        <img src="images/dev2.png" alt="Ilka09" class="dev-small-skin">
+                    </div>
+                    <div class="dev-divider"></div>
+                    <p class="dev-main-text">Ilka09</p>
+                    <p class="dev-sub-text">Пиарщик, спонсор</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Новый футер с копирайтом и ссылкой -->
+        <footer class="footer">
+            <p class="copyright">© 2025 KittyWorld</p>
+            <a href="user-agreement.pdf" class="agreement-link" target="_blank">Пользовательское соглашение</a>
+        </footer>
 
     </div>
 
