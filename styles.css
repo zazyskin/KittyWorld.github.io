@@ -86,7 +86,15 @@ nav.nav {
 
 .useful-links-title { text-align: center; font-size: 18px; font-weight: normal; color: gray; padding: 0 20px; margin-bottom: 30px; }
 
-.links-buttons { display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 30px; flex-wrap: wrap; margin-bottom: 80px; }
+.links-buttons { 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 30px; 
+    flex-wrap: wrap; 
+    margin-bottom: 80px; 
+}
 
 .link-btn { 
     width: 170px; 
@@ -105,8 +113,50 @@ nav.nav {
 }
 .link-btn:hover { background-color: #131313; color: #42AAFF; }
 
-.server-icon { width: 28px; height: 28px; fill: currentColor; }
-.ip-btn { cursor: default; }
+.server-icon, .link-icon {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+}
+
+/* Копирование IP — кнопка */
+#ipCopyBtn {
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+#ipCopyBtn:hover {
+    background-color: #131313;
+    color: #FFD1DC;
+}
+
+/* Toast-уведомление снизу экрана */
+.toast-feedback {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background-color: rgba(255, 209, 220, 0.95);
+    color: #000;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.toast-feedback.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
 
 /* ====================== ГАЙД ====================== */
 
@@ -156,7 +206,7 @@ nav.nav {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Добавлен эффект подъёма */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .guide-big-card:hover {
@@ -194,7 +244,7 @@ nav.nav {
 }
 
 .guide-link {
-    color: #FFD1DC; /* Изменён цвет ссылок на розовый */
+    color: #FFD1DC;
     text-decoration: none;
 }
 
@@ -264,7 +314,7 @@ nav.nav {
     box-sizing: border-box;
     position: relative;
     overflow: visible;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Эффект подъёма всей карточки */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .dev-card:hover {
@@ -445,11 +495,7 @@ nav.nav {
         margin-top: 100px;
     }
 
-    .copyright {
-        font-size: 13px;
-    }
-
-    .agreement-link {
+    .copyright, .agreement-link {
         font-size: 13px;
     }
 }
@@ -462,29 +508,14 @@ nav.nav {
     width: 90%; 
     margin: 60px auto; 
     gap: 60px; 
+    position: relative;
 }
 
-.back-button-desktop { 
-    position: absolute; 
-    top: 20px; 
-    left: 5%; 
-    padding: 10px 20px; 
-    background-color: #140F0B; 
-    color: white; 
-    font-size: 16px; 
-    font-weight: 600; 
-    text-decoration: none; 
-    border-radius: 8px; 
-    transition: all 0.3s ease; 
-}
-.back-button-desktop:hover { 
-    background-color: #202020; 
-    color: #42AAFF; 
-}
-
+/* Боковое меню сдвинуто влево на 100px */
 .wiki-nav-list { 
     width: 300px; 
     flex-shrink: 0; 
+    margin-left: -250px; /* Сдвиг влево на 100px */
 }
 .wiki-nav-list ul { 
     list-style: none; 
@@ -585,18 +616,9 @@ nav.nav {
     display: block;
 }
 
-.back-button-desktop {
-    display: block;
-}
-
-/* Адаптив */
 @media (max-width: 768px) {
     .mobile-header {
         display: flex;
-    }
-
-    .back-button-desktop {
-        display: none;
     }
 
     .desktop-nav {
@@ -641,5 +663,738 @@ nav.nav {
 @media (min-width: 769px) {
     .mobile-nav {
         display: none !important;
+    }
+}
+
+/* Styles moved from wiki.html */
+/* Базовые стили с динамическим позиционированием */
+.wiki-nav-list {
+    width: 300px !important;
+    margin-left: -250px !important;
+    flex-shrink: 0;
+}
+
+.category {
+    font-size: 20px !important;
+    padding: 12px 0 4px 0 !important;
+}
+
+.nav-link,
+.sub-link {
+    font-size: 18px !important;
+    padding: 7px 0 !important;
+    padding-left: 20px !important;
+}
+
+.nav-link:hover,
+.sub-link:hover {
+    color: #FFD1DC;
+}
+
+.nav-link.active {
+    color: #FFD1DC;
+}
+
+/* Корректировка для больших экранов (когда wrapper clamped на 1200px) */
+@media (min-width: 1334px) {
+}
+
+/* Масштабирование для меньших десктопных экранов */
+@media (max-width: 1400px) and (min-width: 1201px) {
+    .wiki-nav-list {
+        width: 280px !important;
+        margin-left: -200px !important;
+    }
+
+    .category {
+        font-size: 19px !important;
+    }
+
+    .nav-link,
+    .sub-link {
+        font-size: 17px !important;
+        padding-left: 18px !important;
+    }
+
+    .wiki-wrapper {
+        gap: 50px !important;
+    }
+
+    .wiki-content {
+        padding: 18px !important;
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 1001px) {
+    .wiki-nav-list {
+        width: 260px !important;
+        margin-left: -150px !important;
+    }
+
+    .category {
+        font-size: 18px !important;
+    }
+
+    .nav-link,
+    .sub-link {
+        font-size: 16px !important;
+        padding-left: 16px !important;
+    }
+
+    .wiki-wrapper {
+        gap: 40px !important;
+    }
+
+    .wiki-content {
+        padding: 16px !important;
+    }
+}
+
+@media (max-width: 1000px) and (min-width: 901px) {
+    .wiki-nav-list {
+        width: 240px !important;
+        margin-left: -100px !important;
+    }
+
+    .category {
+        font-size: 17px !important;
+    }
+
+    .nav-link,
+    .sub-link {
+        font-size: 15px !important;
+        padding-left: 14px !important;
+    }
+
+    .wiki-wrapper {
+        gap: 30px !important;
+    }
+
+    .wiki-content {
+        padding: 14px !important;
+    }
+}
+
+@media (max-width: 900px) and (min-width: 769px) {
+    .wiki-nav-list {
+        width: 220px !important;
+        margin-left: -50px !important;
+    }
+
+    .category {
+        font-size: 16px !important;
+    }
+
+    .nav-link,
+    .sub-link {
+        font-size: 14px !important;
+        padding-left: 12px !important;
+    }
+
+    .wiki-wrapper {
+        gap: 20px !important;
+    }
+
+    .wiki-content {
+        padding: 12px !important;
+    }
+}
+
+/* Меньшая версия кнопки присоединиться */
+.small-join-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #FFD1DC;
+    color: #fff5f8;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(255, 209, 220, 0.3);
+    margin: 10px 0;
+}
+
+.small-join-button:hover {
+    background-color: #ffbcd9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 209, 220, 0.5);
+}
+
+/* Украшение страницы вики */
+.decorated-wiki-content {
+    background: linear-gradient(to bottom, #111, #1a1a1a);
+    border: 1px solid #FFD1DC;
+    box-shadow: 0 0 30px rgba(255, 209, 220, 0.2);
+}
+
+.decorated-wiki-content h2 {
+    color: #FFD1DC;
+    text-shadow: 0 0 10px rgba(255, 209, 220, 0.5);
+}
+
+.decorated-wiki-content p {
+    color: #e0e0e0;
+}
+
+/* ====================== БЛОКИРОВКА ЗУМА И СВАЙПА ====================== */
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* Разрешаем правую кнопку мыши */
+* {
+    -webkit-user-select: auto;
+    user-select: auto;
+    -webkit-touch-callout: default;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Запрещаем зум жестами */
+.container {
+    touch-action: pan-y pinch-zoom;
+    overscroll-behavior: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Блокировка двойного тапа для зума (только на мобильных) */
+@media (hover: none) and (pointer: coarse) {
+    .container {
+        touch-action: pan-y;
+    }
+}
+
+/* ====================== АДАПТИВНОСТЬ КНОПОК ====================== */
+
+/* На ПК: Новости | IP | Техподдержка (все в строке) */
+.links-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: nowrap;
+}
+
+/* На телефоне: Новости | Техподдержка (первая строка), IP (вторая строка) */
+@media (max-width: 768px) {
+    .links-buttons {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
+    .link-btn {
+        flex: 0 0 calc(50% - 15px);
+        max-width: calc(50% - 15px);
+        box-sizing: border-box;
+    }
+    
+    #ipCopyBtn {
+        flex: 0 0 100%;
+        max-width: 100%;
+        order: 3;
+        margin-top: 10px;
+    }
+    
+    .news-btn {
+        order: 1;
+    }
+    
+    .support-btn {
+        order: 2;
+    }
+}
+
+/* На очень маленьких телефонах делаем все кнопки в столбик */
+@media (max-width: 480px) {
+    .link-btn {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin: 5px 0;
+    }
+    
+    #ipCopyBtn {
+        margin-top: 5px;
+    }
+}
+
+/* ====================== АДАПТИВНОЕ МАСШТАБИРОВАНИЕ ====================== */
+
+/* Большие экраны (более 1920px) - увеличиваем интерфейс */
+@media (min-width: 1921px) {
+    :root {
+        font-size: 18px;
+    }
+    
+    .container {
+        transform: scale(1.1);
+        transform-origin: top center;
+        max-width: 1920px;
+        margin: 0 auto;
+    }
+    
+    .logo img {
+        width: 700px !important;
+    }
+    
+    .guide-big-card {
+        width: 650px !important;
+        padding: 45px !important;
+    }
+    
+    .bottom-overlay-skin {
+        width: 320px !important;
+    }
+    
+    .dev-card {
+        width: 280px !important;
+        height: 250px !important;
+    }
+}
+
+/* Очень большие экраны (более 2560px) - еще больше увеличиваем */
+@media (min-width: 2561px) {
+    :root {
+        font-size: 20px;
+    }
+    
+    .container {
+        transform: scale(1.2);
+    }
+    
+    .logo img {
+        width: 800px !important;
+    }
+    
+    .guide-big-card {
+        width: 700px !important;
+        padding: 50px !important;
+    }
+    
+    .bottom-overlay-skin {
+        width: 350px !important;
+    }
+    
+    .dev-card {
+        width: 320px !important;
+        height: 280px !important;
+    }
+}
+
+/* Средние экраны (1200px - 1920px) - нормальный размер */
+@media (min-width: 1200px) and (max-width: 1920px) {
+    .container {
+        transform: none;
+        max-width: 100%;
+    }
+    
+    .logo img {
+        width: 600px;
+    }
+    
+    .guide-big-card {
+        width: 580px;
+        padding: 40px;
+    }
+    
+    .bottom-overlay-skin {
+        width: 280px;
+    }
+    
+    .dev-card {
+        width: 240px;
+        height: 212px;
+    }
+}
+
+/* Маленькие экраны (менее 1200px) - уменьшаем пропорционально */
+@media (max-width: 1199px) and (min-width: 769px) {
+    .logo img {
+        width: 500px;
+    }
+    
+    .guide-big-card {
+        width: 500px;
+        padding: 30px;
+    }
+    
+    .bottom-overlay-skin {
+        width: 240px;
+    }
+    
+    .dev-card {
+        width: 200px;
+        height: 180px;
+    }
+}
+
+/* Мобильные (менее 768px) - уже есть адаптивность выше */
+/* Оставляем как есть */
+
+/* ====================== ДОПОЛНИТЕЛЬНЫЕ ФИКСЫ ====================== */
+
+/* Фикс для scale на больших экранах */
+@media (min-width: 1921px) {
+    body {
+        overflow-x: hidden;
+    }
+    
+    .container {
+        width: 100%;
+        padding-bottom: 100px;
+    }
+    
+    /* Toast должен быть вне scale */
+    .toast-feedback {
+        transform: none !important;
+        left: 50%;
+        transform: translateX(-50%) !important;
+    }
+}
+
+/* Фикс для очень узких окон на ПК */
+@media (max-width: 1400px) and (min-width: 769px) {
+    .guide-cards-row {
+        gap: 40px;
+    }
+    
+    .guide-big-card {
+        width: 480px;
+        padding: 35px;
+    }
+    
+    .bottom-overlay-skin {
+        width: 220px;
+    }
+}
+
+/* Фикс для узких окон */
+@media (max-width: 1100px) and (min-width: 769px) {
+    .guide-cards-row {
+        gap: 30px;
+    }
+    
+    .guide-big-card {
+        width: 450px;
+        padding: 30px;
+    }
+    
+    .bottom-overlay-skin {
+        width: 200px;
+    }
+}
+
+/* Ультра-узкие окна на ПК */
+@media (max-width: 900px) and (min-width: 769px) {
+    .guide-cards-row {
+        flex-direction: column;
+        gap: 60px;
+    }
+    
+    .guide-big-card {
+        width: 90%;
+        max-width: 600px;
+    }
+    
+    .bottom-overlay-skin {
+        display: none;
+    }
+}
+
+/* Фикс для toast на мобильных */
+@media (max-width: 768px) {
+    .toast-feedback {
+        bottom: 20px;
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+/* ====================== ДИНАМИЧЕСКОЕ МАСШТАБИРОВАНИЕ ДЛЯ ВСЕХ СТРАНИЦ ====================== */
+
+/* Большие экраны (более 1920px) - увеличиваем интерфейс пропорционально */
+@media (min-width: 1921px) {
+    :root {
+        font-size: 110%;
+    }
+    
+    /* Главная страница */
+    .container:not(.wiki-wrapper) {
+        transform: scale(1.1);
+        transform-origin: top center;
+        max-width: 1920px;
+        margin: 0 auto;
+    }
+    
+    .logo img {
+        width: 700px !important;
+    }
+    
+    .guide-big-card {
+        width: 650px !important;
+        padding: 45px !important;
+        min-height: 320px !important;
+    }
+    
+    .bottom-overlay-skin {
+        width: 320px !important;
+    }
+    
+    .dev-card {
+        width: 280px !important;
+        height: 250px !important;
+    }
+    
+    /* Wiki страница */
+    .wiki-wrapper {
+        max-width: 1400px;
+        gap: 80px;
+    }
+    
+    .wiki-nav-list {
+        width: 350px !important;
+        margin-left: -300px !important;
+    }
+    
+    .category {
+        font-size: 24px !important;
+    }
+    
+    .nav-link, .sub-link {
+        font-size: 20px !important;
+        padding: 10px 0 !important;
+        padding-left: 25px !important;
+    }
+    
+    .wiki-content {
+        font-size: 20px !important;
+        padding: 30px !important;
+        border-radius: 16px !important;
+    }
+}
+
+/* Очень большие экраны (более 2560px) - ещё больше увеличиваем */
+@media (min-width: 2561px) {
+    :root {
+        font-size: 120%;
+    }
+    
+    .container:not(.wiki-wrapper) {
+        transform: scale(1.2);
+    }
+    
+    .logo img {
+        width: 800px !important;
+    }
+    
+    .guide-big-card {
+        width: 700px !important;
+        padding: 50px !important;
+        min-height: 350px !important;
+    }
+    
+    .bottom-overlay-skin {
+        width: 350px !important;
+    }
+    
+    .dev-card {
+        width: 320px !important;
+        height: 280px !important;
+    }
+    
+    /* Wiki страница */
+    .wiki-wrapper {
+        max-width: 1600px;
+        gap: 100px;
+    }
+    
+    .wiki-nav-list {
+        width: 400px !important;
+        margin-left: -350px !important;
+    }
+    
+    .category {
+        font-size: 28px !important;
+    }
+    
+    .nav-link, .sub-link {
+        font-size: 22px !important;
+        padding: 12px 0 !important;
+        padding-left: 30px !important;
+    }
+    
+    .wiki-content {
+        font-size: 22px !important;
+        padding: 40px !important;
+        border-radius: 20px !important;
+    }
+}
+
+/* Средние экраны (1200px - 1920px) - нормальный размер (оставляем как есть) */
+@media (min-width: 1200px) and (max-width: 1920px) {
+    .container:not(.wiki-wrapper) {
+        transform: none;
+        max-width: 100%;
+    }
+    
+    .logo img {
+        width: 600px;
+    }
+    
+    .guide-big-card {
+        width: 580px;
+        padding: 40px;
+        min-height: 290px;
+    }
+    
+    .bottom-overlay-skin {
+        width: 280px;
+    }
+    
+    .dev-card {
+        width: 240px;
+        height: 212px;
+    }
+}
+
+/* Маленькие экраны (менее 1200px) - уменьшаем пропорционально */
+@media (max-width: 1199px) and (min-width: 769px) {
+    :root {
+        font-size: 95%;
+    }
+    
+    .logo img {
+        width: 500px;
+    }
+    
+    .guide-big-card {
+        width: 500px;
+        padding: 30px;
+        min-height: 420px;
+    }
+    
+    .bottom-overlay-skin {
+        width: 240px;
+        bottom: -70px;
+    }
+    
+    .dev-card {
+        width: 200px;
+        height: 180px;
+    }
+    
+    /* Wiki для маленьких десктопов */
+    .wiki-wrapper {
+        max-width: 1100px;
+    }
+    
+    .wiki-nav-list {
+        width: 280px !important;
+        margin-left: -200px !important;
+    }
+    
+    .category {
+        font-size: 19px !important;
+    }
+    
+    .nav-link, .sub-link {
+        font-size: 17px !important;
+        padding-left: 18px !important;
+    }
+}
+
+/* Мобильные (менее 768px) - используем существующую адаптивность */
+@media (max-width: 768px) {
+    :root {
+        font-size: 90%;
+    }
+    
+    /* Адаптивность уже реализована выше */
+}
+
+/* Ультра-маленькие телефоны */
+@media (max-width: 480px) {
+    :root {
+        font-size: 85%;
+    }
+}
+
+/* Фикс для scale на больших экранах */
+@media (min-width: 1921px) {
+    body {
+        overflow-x: hidden;
+    }
+    
+    .container:not(.wiki-wrapper) {
+        width: 100%;
+        padding-bottom: 100px;
+    }
+    
+    /* Toast должен быть вне scale */
+    .toast-feedback {
+        transform: none !important;
+        left: 50%;
+        transform: translateX(-50%) !important;
+    }
+}
+
+/* Фикс для узких окон на ПК */
+@media (max-width: 1400px) and (min-width: 769px) {
+    .guide-cards-row {
+        gap: 40px;
+    }
+    
+    .guide-big-card {
+        width: 480px;
+        padding: 35px;
+        min-height: 400px;
+    }
+    
+    .bottom-overlay-skin {
+        width: 220px;
+    }
+}
+
+/* Фикс для очень узких окон на ПК */
+@media (max-width: 1100px) and (min-width: 769px) {
+    .guide-cards-row {
+        gap: 30px;
+    }
+    
+    .guide-big-card {
+        width: 450px;
+        padding: 30px;
+        min-height: 450px;
+    }
+    
+    .bottom-overlay-skin {
+        width: 200px;
+        bottom: -80px;
+    }
+}
+
+/* Ультра-узкие окна на ПК - переключаем на вертикальную раскладку */
+@media (max-width: 900px) and (min-width: 769px) {
+    .guide-cards-row {
+        flex-direction: column;
+        gap: 60px;
+    }
+    
+    .guide-big-card {
+        width: 90%;
+        max-width: 600px;
+        min-height: 380px;
+    }
+    
+    .bottom-overlay-skin {
+        display: none;
     }
 }
