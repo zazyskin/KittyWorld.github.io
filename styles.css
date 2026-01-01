@@ -890,12 +890,21 @@ body {
     .links-buttons {
         flex-wrap: wrap;
         gap: 15px;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 80px;
     }
     
     .link-btn {
         flex: 0 0 calc(50% - 15px);
         max-width: calc(50% - 15px);
         box-sizing: border-box;
+        margin: 0;
+        font-size: 14px;
+        padding: 0 5px;
+        width: auto;
+        height: 48px;
+        min-width: 0;
     }
     
     #ipCopyBtn {
@@ -903,6 +912,8 @@ body {
         max-width: 100%;
         order: 3;
         margin-top: 10px;
+        font-size: 14px;
+        height: 48px;
     }
     
     .news-btn {
@@ -912,18 +923,67 @@ body {
     .support-btn {
         order: 2;
     }
+    
+    .server-icon, .link-icon {
+        width: 22px;
+        height: 22px;
+        min-width: 22px;
+    }
 }
 
-/* На очень маленьких телефонах делаем все кнопки в столбик */
+/* На очень маленьких телефонах уменьшаем кнопки ещё больше */
 @media (max-width: 480px) {
+    .links-buttons {
+        gap: 10px;
+        max-width: 350px;
+    }
+    
     .link-btn {
-        flex: 0 0 100%;
-        max-width: 100%;
-        margin: 5px 0;
+        flex: 0 0 calc(50% - 10px);
+        max-width: calc(50% - 10px);
+        font-size: 13px;
+        height: 44px;
+        padding: 0 3px;
     }
     
     #ipCopyBtn {
-        margin-top: 5px;
+        font-size: 13px;
+        height: 44px;
+        margin-top: 8px;
+    }
+    
+    .server-icon, .link-icon {
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+    }
+}
+
+/* На экстремально маленьких телефонах делаем ещё меньше */
+@media (max-width: 360px) {
+    .links-buttons {
+        gap: 8px;
+        max-width: 320px;
+    }
+    
+    .link-btn {
+        flex: 0 0 calc(50% - 8px);
+        max-width: calc(50% - 8px);
+        font-size: 12px;
+        height: 42px;
+        padding: 0 2px;
+    }
+    
+    #ipCopyBtn {
+        font-size: 12px;
+        height: 42px;
+        margin-top: 6px;
+    }
+    
+    .server-icon, .link-icon {
+        width: 18px;
+        height: 18px;
+        min-width: 18px;
     }
 }
 
