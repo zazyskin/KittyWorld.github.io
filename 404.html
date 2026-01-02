@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <title>404 — KittyWorld</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #070707;
+            color: #FFD1DC;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .logo {
+            margin-bottom: 40px;
+        }
+        .logo img {
+            max-width: 90%;
+            width: 500px;
+            height: auto;
+            filter: drop-shadow(0 0 100px rgba(255, 105, 180, 1));
+            image-rendering: pixel-art;
+        }
+        h1 {
+            font-size: 100px;
+            margin: 0 0 20px 0;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(255, 209, 220, 0.5);
+        }
+        .error-text {
+            font-size: 32px;
+            margin: 0 0 50px 0;
+            line-height: 1.4;
+            padding: 0 20px;
+        }
+        .whisky-name {
+            color: #ffbcd9;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.7);
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .whisky-name:hover {
+            color: #ff69b4;
+            transform: scale(1.05);
+            text-shadow: 0 0 20px rgba(255, 105, 180, 0.9);
+        }
+        .whisky-name::after {
+            content: "😼";
+            position: absolute;
+            right: -35px;
+            top: -10px;
+            font-size: 28px;
+        }
+        /* Всплывающая подсказка для ПК */
+        .whisky-name::before {
+            content: "Виски, а ты оплатил налог на корм?";
+            position: absolute;
+            bottom: 150%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #ff69b4, #ffbcd9);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.5);
+            z-index: 100;
+            pointer-events: none;
+            border: 2px solid #FFD1DC;
+        }
+        .whisky-name:hover::before {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(-5px);
+        }
+        .whisky-name::before:after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 8px;
+            border-style: solid;
+            border-color: #ff69b4 transparent transparent transparent;
+        }
+        .home-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #ffbcd9 0%, #ff69b4 100%);
+            color: #fff5f8;
+            font-size: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+            position: relative;
+            overflow: hidden;
+            margin-top: 20px;
+            margin-bottom: 40px; /* Отступ для гифки */
+        }
+        .home-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.6);
+            background: linear-gradient(135deg, #ff69b4 0%, #ffbcd9 100%);
+        }
+        .home-button::after {
+            content: "🐾";
+            margin-left: 10px;
+        }
+        .cat-paw {
+            font-size: 24px;
+            margin: 0 5px;
+            animation: float 2s infinite ease-in-out;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        /* Гифка котика */
+        .minecraft-cat-gif {
+            width: 180px;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 12px;
+            /*box-shadow: 0 0 30px rgba(255, 105, 180, 0.4);*/
+            transition: transform 0.3s ease;
+            object-fit: cover;
+        }
+        .minecraft-cat-gif:hover {
+            transform: scale(1.05);
+        }
+        /* Текст под гифкой */
+        .gif-caption {
+            font-size: 16px;
+            color: #aaaaaa;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        @media (max-width: 768px) {
+            .logo img { width: 400px; }
+            .error-text { font-size: 26px; margin-bottom: 40px; }
+            .home-button { padding: 14px 35px; font-size: 18px; margin-bottom: 30px; }
+            .minecraft-cat-gif { width: 140px; }
+            /* Скрываем всплывашку на мобильных */
+            .whisky-name::before { display: none; }
+        }
+        @media (max-width: 480px) {
+            .logo img { width: 300px; }
+            .error-text { font-size: 22px; margin-bottom: 35px; }
+            .home-button { padding: 12px 30px; font-size: 16px; margin-bottom: 25px; }
+            .minecraft-cat-gif { width: 120px; }
+            /* Скрываем всплывашку на мобильных */
+            .whisky-name::before { display: none; }
+        }
+        /* Только для ПК (больше 768px) показываем всплывашку */
+        @media (min-width: 769px) {
+            .whisky-name:hover::before {
+                opacity: 1;
+                visibility: visible;
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="images/logo404-error.png" alt="404 Error">
+    </div>
+    
+    <div class="error-text">
+        <span class="cat-paw">🐾</span> Ой-ой, котик! Кажется, эту страницу утащил <span class="whisky-name" title="Мой лучший друг-проказник">Виски</span> 
+        <span class="cat-paw">🐾</span><br>
+        И теперь она бегает где-то в <span style="color: #42AAFF;">/dev/null</span> с бантиком на хвостике!
+    </div>
+    
+    <p style="font-size: 20px; color: #aaaaaa; margin-bottom: 30px; padding: 0 20px;">
+        Но не расстраивайся — у нас есть уютный уголок с печеньками и котиками!
+    </p>
+    
+    <a href="index.html" class="home-button">
+        Вернуться в уютный KittyWorld
+    </a>
+    
+    <!-- Гифка майнкрафт кота из локальной папки images -->
+    <div>
+        <img src="images/minecraft-cat-licking.gif" 
+             alt="Minecraft cat licking paw" 
+             class="minecraft-cat-gif">
+        <div class="gif-caption">Котик тоже ищет пропавшую страницу...</div>
+    </div>
+    
+    <script>
+        // Небольшая анимация для имени Виски
+        document.querySelector('.whisky-name').addEventListener('click', function() {
+            this.style.animation = 'none';
+            setTimeout(() => {
+                this.style.animation = 'shake 0.5s';
+            }, 10);
+            setTimeout(() => {
+                this.style.animation = '';
+            }, 500);
+        });
+        
+        // Добавляем CSS для анимации shake
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                20%, 40%, 60%, 80% { transform: translateX(5px); }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Показать/скрыть всплывашку на ПК
+        const whiskyName = document.querySelector('.whisky-name');
+        let tooltipTimeout;
+        
+        whiskyName.addEventListener('mouseenter', function() {
+            if (window.innerWidth >= 769) {
+                clearTimeout(tooltipTimeout);
+                this.classList.add('show-tooltip');
+            }
+        });
+        
+        whiskyName.addEventListener('mouseleave', function() {
+            if (window.innerWidth >= 769) {
+                tooltipTimeout = setTimeout(() => {
+                    this.classList.remove('show-tooltip');
+                }, 300);
+            }
+        });
+    </script>
+</body>
+</html>

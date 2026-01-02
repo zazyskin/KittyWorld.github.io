@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki | KittyWorld</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="wiki-page">
+
+    <div class="mobile-header">
+        <a href="index.html" class="back-button-mobile">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+        </a>
+        <button class="menu-toggle" aria-label="Открыть меню">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
+                <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+            </svg>
+        </button>
+    </div>
+
+    <div class="wiki-wrapper">
+
+        <nav class="wiki-nav-list desktop-nav">
+            <ul>
+                <li><a href="index.html" class="nav-link">На главную</a></li>
+                <li><a href="#how-to-play" class="nav-link active" data-content="Чтобы начать играть на нашем уютном сервере KittyWorld, следуй этим простым шагам, котик! 😼<br><br>1. <strong>Присоединись к сообществу:</strong> Перейди в наш приватный Telegram-канал и чат. Там ты найдешь все новости и поддержку. <a href='https://t.me/KittyYauwWorld_chat' class='small-join-button' target='_blank'>Присоединиться в Telegram</a><br>Зайди в тему 'Вайт лист' и напиши свой никнейм из Minecraft. Администратор быстро добавит тебя в белый список сервера — и вуаля, ты в игре!<br><br>2. <strong>IP сервера:</strong> 0.0.0.0:25565<br>Скопируй этот адрес и вставь в свой Minecraft-клиент.<br><br>3. <strong>Версия Minecraft:</strong> 1.21.1<br>Сервер работает на чистой версии 1.21.1 без обязательных модов. Рекомендуем установить локальные моды типа голосового чата (Plasmo Voice или Simple Voice Chat).<br><br>4. <strong>Рекомендуемый лаунчер:</strong> <a href='https://prismlauncher.org/' class='guide-link' target='_blank'>Prism Launcher</a><br>Супер-удобный инструмент для создания своих сборок Minecraft.<br><br><strong>Дополнительные советы:</strong><br>- Почитай наши <a href='#rules-main' class='guide-link'>основные правила</a> перед входом.<br>- Если возникнут проблемы — напиши в техподдержку через <a href='https://t.me/KittyWorldSupportBot' class='guide-link' target='_blank'>бота</a>.<br>- Схуяли ты еще не играешь? Заходи скорее!<br><br>Удачи в игре, и пусть твой дом в KittyWorld будет самым уютным! 🐱">Как начать Играть?</a></li>
+                <li><a href="#links" class="nav-link" data-content="<strong>Сайт:</strong><br><a href='https://kittyworld.zapto.org' class='guide-link' target='_blank'>https://kittyworld.zapto.org</a><br><br><strong>Telegram-канал с разработкой и новостями:</strong><br><a href='https://t.me/KittyYauwWorld' class='guide-link' target='_blank'>https://t.me/KittyYauwWorld</a><br><br><strong>Чатис Telegram-чат:</strong><br><a href='https://t.me/KittyYauwWorldChat' class='guide-link' target='_blank'>https://t.me/KittyYauwWorldChat</a><br><br><strong>Приватный Telegram-чат (доступ к серверу):</strong><br><a href='https://t.me/KittyYauwWorld_chat' class='guide-link' target='_blank'>https://t.me/KittyYauwWorld_chat</a><br><br><strong>Бот технической поддержки:</strong><br><a href='https://t.me/KittyWorldSupportBot' class='guide-link' target='_blank'>https://t.me/KittyWorldSupportBot</a><br><br><strong>Бот авторизации/логина:</strong><br><a href='https://t.me/KittyWorldLoginBot' class='guide-link' target='_blank'>https://t.me/KittyWorldLoginBot</a>">Ссылки на нас</a></li>
+
+                <li class="category">Правила</li>
+                <li><a href="#rules-main" class="nav-link sub-link" data-content="<strong>ПРАВИЛА ПРОЕКТА KITTYWORLD<br>Выживание & Ролевая Игра</strong><br><br><strong>ОБЩИЕ ПОЛОЖЕНИЯ (КОРОЧЕ, ЧИТАЙ)</strong><br>● Зайдя на сервер, ты автоматически соглашаешься со всеми правилами.<br>● Незнание правил не освобождает от ответственности.<br>● Любой обход или толкование 'в свою пользу' запрещены.<br>● Правила действуют на всех.<br>● Система Варнов: 3 Варна = бан на 14 дней.<br>● Право Администрации: Админы могут выносить решения по своему усмотрению.<br>● Не ебать мозги Администрации: обращайтесь по делу и ждите ответа.<br>● Перманентный бан = конфискация всего имущества.<br>● Обжалование: через <a href='https://t.me/KittyWorldSupportBot' class='guide-link' target='_blank'>бота</a>.<br><br><strong>РАЗДЕЛ 1: ЧЕСТНАЯ ИГРА (БЕЗ ЧИТОВ)</strong><br><br><em>1.1. Читы и запрещенное ПО</em><br>● Запрещено использовать любой софт, дающий нечестное преимущество.<br>● Чит-клиенты, Freecam, ReplayMod, WorldDownloader и т.п.<br><span class='punishment'>Наказание:</span> БАН (30 дней) или ПЕРМАНЕНТНЫЙ БАН<br><br><em>1.2. Баги, дюпы и уязвимости</em><br>● Запрещено умышленно использовать баги, дюпы, взламывать сид.<br><span class='punishment'>Наказание:</span> Варн + конфискация + снос механизмов / БАН<br><br><em>1.3. Альты и обход банов</em><br>● Играть с более чем одного аккаунта — нельзя.<br><span class='punishment'>Наказание:</span> Варн / БАН (за альты) | <span class='punishment'>Наказание:</span> ПЕРМАНЕНТНЫЙ БАН (за обход)<br><br><em>1.4. Покупка/продажа за реальные деньги (RMT)</em><br>● Запрещено покупать/продавать внутриигровые предметы за деньги.<br><span class='punishment'>Наказание:</span> ПЕРМАНЕНТНЫЙ БАН всем участникам<br><br><strong>РАЗДЕЛ 2: ОБЩЕНИЕ И ЧАТ</strong><br><br><em>2.1. Спам, флуд и реклама</em><br>● Не спамить, не флудить, не писать капсом.<br>● Не рекламировать другие проекты.<br><span class='punishment'>Наказание:</span> МУТ (до 2 часов) / Варн<br><br><em>2.2. Оскорбления, угрозы и провокации</em><br>● Не оскорблять игроков вне RP-конфликта.<br>● Не переходить на личности.<br>● Не угрожать (даже 'шутя').<br><span class='punishment'>Наказание:</span> МУТ / Варн / БАН<br><br><em>2.3. Запрещенные темы</em><br>● Не поднимать политику, религию, экстремизм.<br>● Не кидать шок-контент, NSFW.<br><span class='punishment'>Наказание:</span> МУТ / Варн / БАН<br><br><strong>РАЗДЕЛ 3: РОЛЕВАЯ ИГРА (RP) И PVP</strong><br><br><em>3.1. Держись в сеттинге</em><br>● Старайся соответствовать атмосфере сервера.<br>● Избегай неигровых ников.<br><br><em>3.2. Уважай чужой RP</em><br>● Не сей OOC посреди чужой ролевой сцены.<br>● Для OOC используй ((скобки)) или /me.<br><br><em>3.3. Гриферство и PvP</em><br>● Полное уничтожение построек без RP-предыстории — гриферство.<br>● PvP разрешен по согласию или в специальных зонах.<br><span class='punishment'>Наказание за гриферство:</span> Варн + восстановление ущерба / БАН<br><br><strong>ЗАКЛЮЧЕНИЕ</strong><br>Мы здесь, чтобы строить, играть по ролям и хорошо проводить время.<br>Играй честно, не будь мудаком, уважай других котиков.<br><br><em>С уважением, Администрация KittyWorld.</em><br><br><strong>Дополнительные ресурсы:</strong><br>● <a href='https://t.me/KittyYauwWorld' class='guide-link' target='_blank'>Telegram-канал</a><br>● <a href='https://t.me/KittyYauwWorld_chat' class='guide-link' target='_blank'>Приватный чат</a><br>● <a href='https://kittyworld.zapto.org' class='guide-link' target='_blank'>Официальный сайт</a><br>● <a href='https://t.me/KittyWorldSupportBot' class='guide-link' target='_blank'>Бот техподдержки</a>">Основные правила</a></li>
+                <li><a href="#rules-farms" class="nav-link sub-link" data-content="Правила Ферм">Правила Ферм</a></li>
+                <li><a href="#rules-mapart" class="nav-link sub-link" data-content="Постройка мап-артов">Постройка мап-артов</a></li>
+                <li><a href="#rules-territory" class="nav-link sub-link" data-content="Разметка территорий">Разметка территорий</a></li>
+
+                <li class="category">Законы</li>
+                <li><a href="#laws-main" class="nav-link sub-link" data-content="Основные Законы">Основные Законы</a></li>
+                <li><a href="#laws-target" class="nav-link sub-link" data-content="Тарговные Зоны">Тарговные Зоны</a></li>
+                <li><a href="#laws-court" class="nav-link sub-link" data-content="Судебный кодекс">Судебный кодекс</a></li>
+
+                <li class="category">Сервер</li>
+                <li><a href="#server-general" class="nav-link sub-link" data-content="Общее">Общее</a></li>
+                <li><a href="#server-chat" class="nav-link sub-link" data-content="Чат">Чат</a></li>
+                <li><a href="#server-police" class="nav-link sub-link" data-content="Полиция">Полиция</a></li>
+                <li><a href="#server-clans" class="nav-link sub-link" data-content="Кланы">Кланы</a></li>
+                <li><a href="#crafts" class="nav-link sub-link" data-content="Крафты">Крафты</a></li>
+            </ul>
+        </nav>
+
+        <nav class="mobile-nav" id="mobileNav">
+            <ul>
+                <li><a href="#how-to-play" class="nav-link active" data-content="Чтобы начать играть на нашем уютном сервере KittyWorld, следуй этим простым шагам, котик! 😼<br><br>1. <strong>Присоединись к сообществу:</strong> Перейди в наш приватный Telegram-канал и чат. Там ты найдешь все новости и поддержку. <a href='https://t.me/KittyYauwWorld_chat' class='small-join-button' target='_blank'>Присоединиться в Telegram</a><br>Зайди в тему 'Вайт лист' и напиши свой никнейм из Minecraft. Администратор быстро добавит тебя в белый список сервера — и вуаля, ты в игре!<br><br>2. <strong>IP сервера:</strong> 0.0.0.0:25565<br>Скопируй этот адрес и вставь в свой Minecraft-клиент.<br><br>3. <strong>Версия Minecraft:</strong> 1.21.1<br>Сервер работает на чистой версии 1.21.1 без обязательных модов. Рекомендуем установить локальные моды типа голосового чата (Plasmo Voice или Simple Voice Chat).<br><br>4. <strong>Рекомендуемый лаунчер:</strong> <a href='https://prismlauncher.org/' class='guide-link' target='_blank'>Prism Launcher</a><br>Супер-удобный инструмент для создания своих сборок Minecraft.<br><br><strong>Дополнительные советы:</strong><br>- Почитай наши <a href='#rules-main' class='guide-link'>основные правила</a> перед входом.<br>- Если возникнут проблемы — напиши в техподдержку через <a href='https://t.me/KittyWorldSupportBot' class='guide-link' target='_blank'>бота</a>.<br>- Схуяли ты еще не играешь? Заходи скорее!<br><br>Удачи в игре, и пусть твой дом в KittyWorld будет самым уютным! 🐱">Как начать Играть?</a></li>
+                <li><a href="#links" class="nav-link" data-content="<strong>Сайт:</strong><br><a href='https://kittyworld.zapto.org' class='guide-link' target='_blank'>https://kittyworld.zapto.org</a><br><br><strong>Telegram-канал с разработкой и новостями:</strong><br><a href='https://t.me/KittyYauwWorld' class='guide-link' target='_blank'>https://t.me/KittyYauwWorld</a><br><br><strong>Чатис Telegram-чат:</strong><br><a href='https://t.me/KittyYauwWorldChat' class='guide-link' target='_blank'>https://t.me/KittyYauwWorldChat</a><br><br><strong>Приватный Telegram-чат (доступ к серверу):</strong><br><a href='https://t.me/KittyYauwWorld_chat' class='guide-link' target='_blank'>https://t.me/KittyYauwWorld_chat</a><br><br><strong>Бот технической поддержки:</strong><br><a href='https://t.me/KittyWorldSupportBot' class='guide-link' target='_blank'>https://t.me/KittyWorldSupportBot</a><br><br><strong>Бот авторизации/логина:</strong><br><a href='https://t.me/KittyWorldLoginBot' class='guide-link' target='_blank'>https://t.me/KittyWorldLoginBot</a>">Ссылки на нас</a></li>
+
+                <li class="category">Правила</li>
+                <li><a href="#rules-main" class="nav-link sub-link" data-content="<strong>ПРАВИЛА ПРОЕКТА KITTYWORLD<br>Выживание & Ролевая Игра</strong><br><br><strong>ОБЩИЕ ПОЛОЖЕНИЯ (КОРОЧЕ, ЧИТАЙ)</strong><br>● Зайдя на сервер, ты автоматически соглашаешься со всеми правилами.<br>● Незнание правил не освобождает от ответственности.<br>● Любой обход или толкование 'в свою пользу' запрещены.<br>● Правила действуют на всех.<br>● Система Варнов: 3 Варна = бан на 14 дней.<br>● Право Администрации: Админы могут выносить решения по своему усмотрению.<br>● Не ебать мозги Администрации: обращайтесь по делу и ждите ответа.<br>● Перманентный бан = конфискация всего имущества.<br>● Обжалование: через <a href='https://t.me/KittyWorldSupportBot' class='guide-link' target='_blank'>бота</a>.<br><br><strong>РАЗДЕЛ 1: ЧЕСТНАЯ ИГРА (БЕЗ ЧИТОВ)</strong><br><br><em>1.1. Читы и запрещенное ПО</em><br>● Запрещено использовать любой софт, дающий нечестное преимущество.<br>● Чит-клиенты, Freecam, ReplayMod, WorldDownloader и т.п.<br><span class='punishment'>Наказание:</span> БАН (30 дней) или ПЕРМАНЕНТНЫЙ БАН<br><br><em>1.2. Баги, дюпы и уязвимости</em><br>● Запрещено умышленно использовать баги, дюпы, взламывать сид.<br><span class='punishment'>Наказание:</span> Варн + конфискация + снос механизмов / БАН<br><br><em>1.3. Альты и обход банов</em><br>● Играть с более чем одного аккаунта — нельзя.<br><span class='punishment'>Наказание:</span> Варн / БАН (за альты) | <span class='punishment'>Наказание:</span> ПЕРМАНЕНТНЫЙ БАН (за обход)<br><br><em>1.4. Покупка/продажа за реальные деньги (RMT)</em><br>● Запрещено покупать/продавать внутриигровые предметы за деньги.<br><span class='punishment'>Наказание:</span> ПЕРМАНЕНТНЫЙ БАН всем участникам<br><br><strong>РАЗДЕЛ 2: ОБЩЕНИЕ И ЧАТ</strong><br><br><em>2.1. Спам, флуд и реклама</em><br>● Не спамить, не флудить, не писать капсом.<br>● Не рекламировать другие проекты.<br><span class='punishment'>Наказание:</span> МУТ (до 2 часов) / Варн<br><br><em>2.2. Оскорбления, угрозы и провокации</em><br>● Не оскорблять игроков вне RP-конфликта.<br>● Не переходить на личности.<br>● Не угрожать (даже 'шутя').<br><span class='punishment'>Наказание:</span> МУТ / Варн / БАН<br><br><em>2.3. Запрещенные темы</em><br>● Не поднимать политику, религию, экстремизм.<br>● Не кидать шок-контент, NSFW.<br><span class='punishment'>Наказание:</span> МУТ / Варн / БАН<br><br><strong>РАЗДЕЛ 3: РОЛЕВАЯ ИГРА (RP) И PVP</strong><br><br><em>3.1. Держись в сеттинге</em><br>● Старайся соответствовать атмосфере сервера.<br>● Избегай неигровых ников.<br><br><em>3.2. Уважай чужой RP</em><br>● Не сей OOC посреди чужой ролевой сцены.<br>● Для OOC используй ((скобки)) или /me.<br><br><em>3.3. Гриферство и PvP</em><br>● Полное уничтожение построек без RP-предыстории — гриферство.<br>● PvP разрешен по согласию или в специальных зонах.<br><span class='punishment'>Наказание за гриферство:</span> Варн + восстановление ущерба / БАН<br><br><strong>ЗАКЛЮЧЕНИЕ</strong><br>Мы здесь, чтобы строить, играть по ролям и хорошо проводить время.<br>Играй честно, не будь мудаком, уважай других котиков.<br><br><em>С уважением, Администрация KittyWorld.</em><br><br><strong>Дополнительные ресурсы:</strong><br>● <a href='https://t.me/KittyYauwWorld' class='guide-link' target='_blank'>Telegram-канал</a><br>● <a href='https://t.me/KittyYauwWorld_chat' class='guide-link' target='_blank'>Приватный чат</a><br>● <a href='https://kittyworld.zapto.org' class='guide-link' target='_blank'>Официальный сайт</a><br>● <a href='https://t.me/KittyWorldSupportBot' class='guide-link' target='_blank'>Бот техподдержки</a>">Основные правила</a></li>
+                <li><a href="#rules-farms" class="nav-link sub-link" data-content="Правила Ферм">Правила Ферм</a></li>
+                <li><a href="#rules-mapart" class="nav-link sub-link" data-content="Постройка мап-артов">Постройка мап-артов</a></li>
+                <li><a href="#rules-territory" class="nav-link sub-link" data-content="Разметка территорий">Разметка территорий</a></li>
+
+                <li class="category">Законы</li>
+                <li><a href="#laws-main" class="nav-link sub-link" data-content="Основные Законы">Основные Законы</a></li>
+                <li><a href="#laws-target" class="nav-link sub-link" data-content="Тарговные Зоны">Тарговные Зоны</a></li>
+                <li><a href="#laws-court" class="nav-link sub-link" data-content="Судебный кодекс">Судебный кодекс</a></li>
+
+                <li class="category">Сервер</li>
+                <li><a href="#server-general" class="nav-link sub-link" data-content="Общее">Общее</a></li>
+                <li><a href="#server-chat" class="nav-link sub-link" data-content="Чат">Чат</a></li>
+                <li><a href="#server-police" class="nav-link sub-link" data-content="Полиция">Полиция</a></li>
+                <li><a href="#server-clans" class="nav-link sub-link" data-content="Кланы">Кланы</a></li>
+                <li><a href="#crafts" class="nav-link sub-link" data-content="Крафты">Крафты</a></li>
+            </ul>
+        </nav>
+
+        <div class="wiki-content decorated-wiki-content">
+            <div id="content-area"></div>
+        </div>
+    </div>
+
+    <style>
+        .punishment {
+            color: #ff5555;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        const contentArea = document.getElementById('content-area');
+        const links = document.querySelectorAll('.nav-link');
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileNav = document.getElementById('mobileNav');
+
+        menuToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+        });
+
+        links.forEach(link => {
+            if (link.getAttribute('href') === 'index.html') return;
+
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                const content = this.getAttribute('data-content');
+                contentArea.innerHTML = `<h2>${this.textContent}</h2><div class="wiki-text-content">${content}</div>`;
+                if (window.innerWidth <= 768) mobileNav.classList.remove('open');
+            });
+        });
+
+        document.querySelector('.nav-link.active').click();
+
+        let touchstartX = 0;
+        let touchendX = 0;
+
+        mobileNav.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].clientX;
+        }, { passive: true });
+
+        mobileNav.addEventListener('touchend', e => {
+            if (touchstartX === 0) return;
+            touchendX = e.changedTouches[0].clientX;
+            if (touchstartX - touchendX > 50) mobileNav.classList.remove('open');
+            touchstartX = 0;
+        });
+    </script>
+
+</body>
+</html>
